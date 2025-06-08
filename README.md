@@ -4,6 +4,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+## Instalacion
+
+Instalacion del entorno de desarrollo de angular, debe estar instalado pip
+
+```
+pip install nodeenv
+nodeenv --node=22.12.0 .nenv
+./.nenv/scripts/activate
+npm install -g @angular/cli@18.2.13
+
+```
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
