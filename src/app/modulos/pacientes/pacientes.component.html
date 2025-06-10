@@ -1,0 +1,66 @@
+<div class="contenedor-pacientes">
+  <h1>Gestión de Pacientes</h1>
+  <p>Busque un paciente por CI, nombre o apellido, o vea la lista completa.</p>
+
+  <div class="formulario">
+    <mat-form-field appearance="outline" class="campo-criterio">
+      <mat-label>Buscar Paciente</mat-label>
+      <input matInput [formControl]="criterio" (keyup.enter)="buscar()">
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="buscar()">
+      <mat-icon>search</mat-icon> Buscar
+    </button>
+    <button mat-stroked-button color="accent" (click)="limpiar()">
+      <mat-icon>refresh</mat-icon> Recargar Lista
+    </button>
+  </div>
+
+  <div *ngIf="cargando" class="contenedor-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="!cargando && pacientes.length > 0" class="contenedor-tabla">
+    <table mat-table [dataSource]="pacientes">
+
+      <ng-container matColumnDef="id_paciente">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let paciente"> {{paciente.id_paciente}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ci">
+        <th mat-header-cell *matHeaderCellDef> C.I. </th>
+        <td mat-cell *matCellDef="let paciente"> {{paciente.ci}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nombreCompleto">
+        <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
+        <td mat-cell *matCellDef="let paciente"> {{paciente.paterno}} {{paciente.materno}}, {{paciente.nombres}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef> Celular </th>
+        <td mat-cell *matCellDef="let paciente"> {{paciente.telefono.celular}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let paciente">
+          <button mat-icon-button color="primary" matTooltip="Ver Historial Clínico" (click)="verHistorial(paciente.id_paciente)">
+            <mat-icon>history</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" matTooltip="Iniciar Consulta Externa" (click)="iniciarConsulta(paciente.id_paciente)">
+            <mat-icon>medical_services</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnasMostradas"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnasMostradas;"></tr>
+    </table>
+  </div>
+
+  <div *ngIf="!cargando && pacientes.length === 0" class="sin-resultados">
+    No se encontraron pacientes que coincidan con los criterios.
+  </div>
+
+</div>

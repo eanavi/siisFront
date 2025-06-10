@@ -1,0 +1,26 @@
+<div class="contenedor-login">
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header class="tope">
+    <mat-card-title class="tope">Inicio de Sesión</mat-card-title>
+    <mat-card-subtitle class="tope">Ingrese sus credenciales</mat-card-subtitle>
+  </mat-card-header>
+    <mat-card-content class="tope">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="ancho-ful">
+          <mat-label>Usuario</mat-label>
+          <input matInput formControlName="username" placeholder="Usuario" />
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="ancho-ful">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="password" placeholder="Contraseña" />
+          <mat-icon matSuffix>key</mat-icon>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="ancho-ful">Ingresar</button>
+      </form>
+      <div class="forgot-password">
+        <a href="#">¿Olvidó su contraseña?</a>
+      </div>
+    </mat-card-content>
+</mat-card>
+</div>

@@ -1,0 +1,8 @@
+.opcion-activa {
+    background-color: rgba(63, 81, 181, 0.1); /* Color de realce de Material */
+    color: #3f51b5;
+    font-weight: bold;
+}
+.opcion-activa mat-icon {
+    color: #3f51b5;
+}

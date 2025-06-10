@@ -1,0 +1,26 @@
+.contenedor-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+}
+.example-card {
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ancho-ful{
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.tope{
+  margin-top: 10px;
+}
+
+.forgot-password {
+  margin-top: 1rem;
+  text-align: right;
+}

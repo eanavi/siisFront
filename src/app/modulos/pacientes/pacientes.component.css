@@ -1,0 +1,28 @@
+.contenedor-busqueda {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.formulario {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.campo-criterio {
+  flex-grow: 1;
+}
+.contenedor-spinner, .sin-resultados {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: grey;
+}
+.contenedor-tabla {
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table {
+  width: 100%;
+}
